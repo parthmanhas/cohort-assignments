@@ -4,6 +4,22 @@
 */
 
 function isPalindrome(str) {
+  str = str.toLowerCase();
+
+  let left = 0, right = str.length - 1;
+
+  const IGNORE = [' ', '!', '.', '?', ','];
+
+  while (left < right) {
+    while (IGNORE.includes(str[left])) left += 1;
+    while (IGNORE.includes(str[right])) right -= 1;
+    if (str[left] !== str[right]) {
+      return false;
+    }
+    left += 1;
+    right -= 1;
+  }
+
   return true;
 }
 
