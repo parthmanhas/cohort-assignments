@@ -6,18 +6,25 @@
  */
 
 function wait1(t) {
-
+    return new Promise(res => setTimeout(res, t * 1000));
 }
 
 function wait2(t) {
-
+    return new Promise(res => setTimeout(res, t * 1000));
 }
 
 function wait3(t) {
-
+    return new Promise(res => setTimeout(res, t * 1000));
 }
 
 function calculateTime(t1, t2, t3) {
+    return new Promise(async res => {
+        const start = Date.now();
+        const res1 = await wait1(t1);
+        const res2 = await wait2(t2);
+        const res3 = await wait3(t3);
+        res((Date.now() - start));
+    })
 
 }
 
